@@ -1,5 +1,5 @@
-#N canvas 440 150 1100 543 10;
-#N canvas 414 274 452 302 gemwin 0;
+#N canvas 164 152 1102 545 10;
+#N canvas 414 336 452 304 gemwin 0;
 #X obj 67 89 outlet;
 #X obj 67 10 inlet;
 #X msg 67 70 set destroy;
@@ -7,7 +7,8 @@
 #X msg 156 71 set create;
 #X obj 67 41 route create;
 #X msg 132 112 dimen 1920 1080 \, create \, 1;
-#X obj 132 136 gemwin 30;
+#X obj 132 136 gemwin 24;
+#X obj 272 13 inlet;
 #X connect 1 0 5 0;
 #X connect 2 0 0 0;
 #X connect 3 0 7 0;
@@ -17,8 +18,9 @@
 #X connect 5 1 4 0;
 #X connect 5 1 3 0;
 #X connect 6 0 7 0;
+#X connect 8 0 7 0;
 #X restore 448 163 pd gemwin;
-#X msg 448 144 create;
+#X msg 448 144 destroy;
 #X msg 412 270 open 20190413_155018_816.mp4;
 #X obj 412 234 del 500;
 #X obj 412 68 bng 42 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -63,8 +65,8 @@
 #X connect 14 0 15 0;
 #X restore 664 96 pd mouselook;
 #N canvas 0 0 450 300 (subpatch) 0;
-#X array worldline_opacity 30 float 22 #ffffff black;
-#X coords 0 1 30 0 200 140 1;
+#X array worldline_opacity 24 float 22 #ffffff black;
+#X coords 0 1 24 0 200 140 1;
 #X restore 102 144 graph;
 #X obj 102 58 loadbang;
 #N canvas 276 148 552 549 stream-frames 0;
@@ -106,27 +108,33 @@
 1;
 #X obj 662 328 loadbang;
 #X obj 662 372 s worldline_buffer_max;
-#X text 524 344 loop;
-#X obj 506 346 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
 #X text 480 316 active;
 #X msg 102 86 \; worldline_opacity const 0.1;
-#X obj 662 350 pix_buffer worldline 30;
-#X obj 104 364 clone worldline_unit 30 0.5, f 29;
 #X msg 634 246 open arboretum_shadow.mp4;
 #X msg 648 282 open livingroom_disco.mp4;
 #X msg 580 210 open 20190413_154935_156.mp4;
+#X msg 584 176 open 20190416_181235_653.mp4;
+#X msg 560 146 open 20190419_2039.mp4;
+#X obj 104 364 clone worldline_unit 24 0.5, f 29;
+#X obj 662 350 pix_buffer worldline 24;
+#X msg 530 96 stereo \$1;
+#X obj 526 64 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
 #X connect 0 0 1 0;
 #X connect 1 0 0 0;
 #X connect 2 0 9 0;
 #X connect 3 0 2 0;
 #X connect 4 0 1 0;
 #X connect 4 0 3 0;
-#X connect 8 0 16 0;
+#X connect 8 0 14 0;
 #X connect 9 0 10 0;
 #X connect 10 0 9 1;
-#X connect 11 0 17 0;
-#X connect 17 0 12 0;
+#X connect 11 0 21 0;
+#X connect 15 0 9 0;
+#X connect 16 0 9 0;
+#X connect 17 0 9 0;
+#X connect 18 0 9 0;
 #X connect 19 0 9 0;
-#X connect 20 0 9 0;
-#X connect 21 0 9 0;
+#X connect 21 0 12 0;
+#X connect 22 0 0 1;
+#X connect 23 0 22 0;
